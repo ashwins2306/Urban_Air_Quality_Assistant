@@ -1,6 +1,6 @@
 .app-root {
   min-height: 100vh;
-  background: var(--bg-obsidian);
+  background: transparent;
   color: var(--text-primary);
   position: relative;
 }

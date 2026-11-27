@@ -1,8 +1,11 @@
 import axios from 'axios';
 
-// Connect directly to FastAPI backend on port 8000 when developing locally,
-// avoiding Vite dev-server proxy EPERM restrictions.
+// Connect to deployed backend URL if configured, or localhost:8000 locally
 const getBaseURL = () => {
+  if (import.meta.env && import.meta.env.VITE_API_URL) {
+    const base = import.meta.env.VITE_API_URL.replace(/\/+$/, '');
+    return base.endsWith('/api') ? base : `${base}/api`;
+  }
   if (typeof window !== 'undefined') {
     const host = window.location.hostname || 'localhost';
     if (host === 'localhost' || host === '127.0.0.1') {

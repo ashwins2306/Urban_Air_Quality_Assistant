@@ -78,10 +78,14 @@ body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--bg-obsidian);
   background-image: 
+    url('/background.svg'),
     radial-gradient(at 10% 10%, rgba(56, 189, 248, 0.14) 0px, transparent 45%),
     radial-gradient(at 88% 12%, rgba(212, 175, 55, 0.10) 0px, transparent 40%),
     radial-gradient(at 50% 80%, rgba(129, 140, 248, 0.09) 0px, transparent 50%),
     radial-gradient(at 90% 85%, rgba(16, 185, 129, 0.08) 0px, transparent 45%);
+  background-size: cover, auto, auto, auto, auto;
+  background-position: center top, center, center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
   background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;

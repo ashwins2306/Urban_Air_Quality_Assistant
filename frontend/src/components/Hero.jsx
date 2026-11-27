@@ -522,10 +522,25 @@ export default function Hero({ onSetup, setupError, onClearError, onRetry }) {
           </div>
         </div>
 
-        {/* Right Column: Haute Horlogerie Atmospheric Visualizer */}
+        {/* Right Column: Haute Horlogerie & Nature Sanctuary Visualizer */}
         <div className="lux-visual-col">
           <div className="horology-sanctuary-card glass-panel">
-            <div className="card-ambient-bezel">
+            {/* Pristine Nature & Greenery Sanctuary Banner */}
+            <div className="nature-sanctuary-card-banner">
+              <img
+                src="/nature/nature-sanctuary.svg"
+                alt="Pristine Natural Forest & Clean Atmosphere"
+                className="nature-sanctuary-img"
+              />
+              <div className="nature-sanctuary-overlay">
+                <span className="nature-eco-chip">
+                  <FaLeaf /> Alpine Nature Sanctuary
+                </span>
+                <span className="nature-eco-caption">Clean Air Ecosystem Target: &lt; 5 μg/m³ PM2.5</span>
+              </div>
+            </div>
+
+            <div className="card-ambient-bezel nature-bezel-compact">
               <div className="bezel-mark north">00</div>
               <div className="bezel-mark east">06</div>
               <div className="bezel-mark south">12</div>

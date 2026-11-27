@@ -14,6 +14,11 @@ try:
 except ImportError:
     genai = None
 
+try:
+    import openai
+except ImportError:
+    openai = None
+
 
 TOPIC_GROUPS = [
     {
@@ -277,6 +282,62 @@ def _execute_gemini_call(
     return None
 
 
+def _execute_openai_call(
+    api_key: str,
+    message: str,
+    context: dict,
+    history: Optional[List[Dict[str, str]]] = None,
+    timeout_seconds: float = 7.0
+) -> Optional[str]:
+    """Internal helper to execute OpenAI API call with gpt-4o-mini."""
+    if not openai:
+        return None
+
+    try:
+        client = openai.OpenAI(api_key=api_key, timeout=timeout_seconds)
+
+        ctx = context if isinstance(context, dict) else {}
+        city = ctx.get("city") or "your area"
+        aqi = ctx.get("aqi") or "unspecified"
+        lifestyle = ctx.get("lifestyle") or "general"
+
+        system_instruction = (
+            "You are BreatheEasy AI, an expert clinical atmospheric and environmental health specialist. "
+            "Your role is to provide clear, actionable, educational, and scientifically sound advice "
+            "on air pollution, respiratory protection, winter smog mitigation, and sustainable daily habits.\n\n"
+            f"User Real-Time Context:\n"
+            f"- Monitored City: {city}\n"
+            f"- Current AQI: {aqi}\n"
+            f"- Lifestyle Profile: {lifestyle}\n\n"
+            "Guidelines:\n"
+            "- Format answers cleanly using markdown (bullet points, **bold** key terms).\n"
+            "- Prioritize practical, life-saving advice: mask standards (N95/N99), HEPA filtration, inversion timing.\n"
+            "- Address follow-up questions coherently using the conversation history.\n"
+            "- Maintain a warm, encouraging, and authoritative medical/scientific tone."
+        )
+
+        messages = [{"role": "system", "content": system_instruction}]
+        if history and isinstance(history, list):
+            for turn in history[-6:]:
+                role = turn.get("role")
+                content = turn.get("content")
+                if role in ("user", "assistant", "model") and content:
+                    norm_role = "user" if role == "user" else "assistant"
+                    messages.append({"role": norm_role, "content": content})
+        messages.append({"role": "user", "content": message})
+
+        resp = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=messages,
+            max_tokens=600,
+        )
+        if resp.choices and resp.choices[0].message and resp.choices[0].message.content:
+            return resp.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"OpenAI API call failed: {e}; switching to clinical fallback.")
+    return None
+
+
 def get_gemini_response(
     message: str,
     context: dict,
@@ -346,11 +407,27 @@ def get_chat_response(
     history: Optional[List[Dict[str, str]]] = None
 ) -> Dict[str, Any]:
     """
-    Unified chat handler. Tries Gemini 2.0 Flash first (with timeout).
+    Unified chat handler. Supports both OpenAI (gpt-4o-mini) and Gemini 2.0 Flash (with timeout).
     If unavailable or fails, seamlessly serves verified clinical rule engine.
     Returns structured dict with response text, active engine source, and fallback status.
     """
-    # 1. Attempt Gemini 2.0 Flash
+    # 1. Attempt OpenAI if key is an OpenAI key or OPENAI_API_KEY is configured
+    openai_key = None
+    if api_key and (api_key.startswith("sk-") or "proj" in api_key):
+        openai_key = api_key
+    elif os.environ.get("OPENAI_API_KEY") and not (api_key and not api_key.startswith("sk-")):
+        openai_key = os.environ.get("OPENAI_API_KEY")
+
+    if openai_key and openai:
+        openai_reply = _execute_openai_call(openai_key, message, context, history=history, timeout_seconds=7.0)
+        if openai_reply:
+            return {
+                "response": openai_reply,
+                "source": "openai",
+                "is_fallback": False
+            }
+
+    # 2. Attempt Gemini 2.0 Flash
     gemini_reply = get_gemini_response(message, context, api_key=api_key, history=history, timeout_seconds=7.0)
     if gemini_reply:
         return {
@@ -359,7 +436,7 @@ def get_chat_response(
             "is_fallback": False
         }
 
-    # 2. Verified Clean Air Clinical Rule Engine Fallback
+    # 3. Verified Clean Air Clinical Rule Engine Fallback
     fallback_reply = get_builtin_response(message, context)
     return {
         "response": fallback_reply,
@@ -608,9 +685,110 @@ def generate_chrono_intelligence(
 ) -> Dict[str, Any]:
     """
     Unified Chrono-Intelligence pipeline.
-    Invokes Gemini 2.0 Flash to synthesize hyper-personalized meteorological briefing.
-    If Gemini fails, times out, or has no key, gracefully serves scientific clinical synthesizer.
+    Supports OpenAI (gpt-4o-mini) and Gemini 2.0 Flash to synthesize hyper-personalized meteorological briefing.
+    If LLM fails, times out, or has no key, gracefully serves scientific clinical synthesizer.
     """
+    import json
+    city_display = city.strip().title() if city else "Local Region"
+
+    prompt = (
+        f"You are the BreatheEasy Chrono-Intelligence AI, an expert boundary-layer atmospheric physicist "
+        f"and circadian environmental medicine specialist.\n"
+        f"City: {city}\n"
+        f"Current AQI: {aqi}\n"
+        f"Household Lifestyle Profile: {lifestyle}\n\n"
+        "Task: Analyze the diurnal thermal smog inversion cycle (morning ground radiation inversion trap vs "
+        "midday solar convective mixing and dispersion vs nocturnal boundary layer collapse). "
+        "Output STRICTLY valid JSON with no markdown wrapping and no backticks. The JSON must follow this exact schema:\n"
+        "{\n"
+        '  "briefing_headline": "string headline under 10 words",\n'
+        '  "spoken_briefing": "string of 60 to 85 words designed for audio voice playback explaining the morning trap, exact solar window, and nighttime sealing",\n'
+        '  "hazard_time": "e.g. 06:30 - 10:15",\n'
+        '  "hazard_title": "string",\n'
+        '  "hazard_desc": "string",\n'
+        '  "optimal_time": "e.g. 13:30 - 15:45",\n'
+        '  "optimal_title": "string",\n'
+        '  "optimal_desc": "string",\n'
+        '  "sanctuary_time": "e.g. 18:30 - Overnight",\n'
+        '  "sanctuary_title": "string",\n'
+        '  "sanctuary_desc": "string",\n'
+        '  "milestones": [\n'
+        '    {"time": "07:00", "title": "...", "activity": "...", "level": "danger"},\n'
+        '    {"time": "10:30", "title": "...", "activity": "...", "level": "warning"},\n'
+        '    {"time": "13:30", "title": "...", "activity": "...", "level": "optimal"},\n'
+        '    {"time": "17:30", "title": "...", "activity": "...", "level": "warning"},\n'
+        '    {"time": "21:00", "title": "...", "activity": "...", "level": "safe"}\n'
+        '  ]\n'
+        "}"
+    )
+
+    # 1. Attempt OpenAI (gpt-4o-mini)
+    openai_key = None
+    if api_key and (api_key.startswith("sk-") or "proj" in api_key):
+        openai_key = api_key
+    elif os.environ.get("OPENAI_API_KEY") and not (api_key and not api_key.startswith("sk-")):
+        openai_key = os.environ.get("OPENAI_API_KEY")
+
+    if openai_key and openai:
+        try:
+            client = openai.OpenAI(api_key=openai_key, timeout=7.0)
+            resp = client.chat.completions.create(
+                model="gpt-4o-mini",
+                response_format={"type": "json_object"},
+                messages=[
+                    {"role": "system", "content": "You are the BreatheEasy Chrono-Intelligence AI. Output strictly valid JSON."},
+                    {"role": "user", "content": prompt}
+                ],
+            )
+            raw_text = resp.choices[0].message.content
+            if raw_text:
+                parsed = json.loads(raw_text)
+                calendar_events = [
+                    {
+                        "title": f"BreatheEasy: Optimal Outdoor & Aeration Window ({city_display})",
+                        "start_time_iso": "13:30",
+                        "end_time_iso": "15:30",
+                        "description": f"Solar convective dispersion peak in {city_display}. Ideal time for essential outdoor transit, errands, and rapid 10-minute indoor cross-ventilation."
+                    },
+                    {
+                        "title": f"BreatheEasy: Bedroom Sanctuary Sealing & Filtration ({city_display})",
+                        "start_time_iso": "20:30",
+                        "end_time_iso": "07:00",
+                        "description": f"Nocturnal thermal boundary layer collapse in {city_display}. Seal all windows and engage true HEPA purifiers in bedrooms."
+                    }
+                ]
+                return {
+                    "headline": parsed.get("briefing_headline", f"Dynamic Meteorological Analysis for {city_display}"),
+                    "spoken_briefing": parsed.get("spoken_briefing", ""),
+                    "windows": {
+                        "hazard": {
+                            "time": parsed.get("hazard_time", "06:30 - 10:15"),
+                            "title": parsed.get("hazard_title", "Morning Radiation Inversion Trap"),
+                            "description": parsed.get("hazard_desc", "Ground-level particulate stagnation."),
+                            "badge": "Radiation Inversion"
+                        },
+                        "optimal": {
+                            "time": parsed.get("optimal_time", "13:30 - 15:45"),
+                            "title": parsed.get("optimal_title", "Solar Convective Dilution Window"),
+                            "description": parsed.get("optimal_desc", "Solar mixing lifts fine particulate soot into higher altitude."),
+                            "badge": "Convective Mixing"
+                        },
+                        "sanctuary": {
+                            "time": parsed.get("sanctuary_time", "18:30 - Overnight"),
+                            "title": parsed.get("sanctuary_title", "Dusk Boundary Layer Collapse"),
+                            "description": parsed.get("sanctuary_desc", "Nocturnal cooling traps surface pollution; engage sealed HEPA filtration."),
+                            "badge": "Nocturnal Boundary Inversion"
+                        }
+                    },
+                    "schedule": parsed.get("milestones", []),
+                    "calendar_events": calendar_events,
+                    "source": "openai",
+                    "is_ai_generated": True
+                }
+        except Exception as e:
+            print(f"OpenAI Chrono-Intelligence call failed: {e}; falling back.")
+
+    # 2. Attempt Gemini 2.0 Flash
     key_to_use = api_key or os.environ.get("GEMINI_API_KEY")
 
     if key_to_use and genai:

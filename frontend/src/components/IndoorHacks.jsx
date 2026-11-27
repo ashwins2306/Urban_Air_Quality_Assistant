@@ -13,9 +13,29 @@ import {
   FaShieldVirus,
   FaSun,
   FaDroplet,
+  FaLeaf,
 } from 'react-icons/fa6';
 import { fetchIndoorTips, fetchDIYProjects, fetchPlants } from '../utils/api';
 import './IndoorHacks.css';
+
+const PLANT_IMAGES = {
+  'Snake Plant': '/nature/snake-plant.svg',
+  'Spider Plant': '/nature/spider-plant.svg',
+  'Peace Lily': '/nature/peace-lily.svg',
+  'Boston Fern': '/nature/boston-fern.svg',
+  'Areca Palm': '/nature/areca-palm.svg',
+  'Rubber Plant': '/nature/rubber-plant.svg',
+};
+
+function getPlantImage(plantName) {
+  if (!plantName) return '/nature/snake-plant.svg';
+  for (const [key, path] of Object.entries(PLANT_IMAGES)) {
+    if (plantName.toLowerCase().includes(key.toLowerCase())) {
+      return path;
+    }
+  }
+  return '/nature/snake-plant.svg';
+}
 
 export default function IndoorHacks() {
   const [selectedRoom, setSelectedRoom] = useState('living');
@@ -212,30 +232,44 @@ export default function IndoorHacks() {
           <div className="plants-grid">
             {plants.map((plant, idx) => (
               <div key={idx} className="plant-botanic-card glass-panel">
-                <div className="plant-top-row">
-                  <span className="plant-avatar">{plant.emoji || '🌿'}</span>
-                  <div className="plant-headline">
-                    <h4>{plant.name}</h4>
-                    {plant.care_level && (
-                      <span className="care-tag">Care: {plant.care_level}</span>
-                    )}
-                  </div>
+                <div className="plant-image-banner">
+                  <img
+                    src={getPlantImage(plant.name)}
+                    alt={plant.name}
+                    className="plant-card-img"
+                    loading="lazy"
+                  />
+                  <span className="plant-image-tag">
+                    <FaLeaf /> Bio-Filter
+                  </span>
                 </div>
 
-                <p className="plant-desc">{plant.description}</p>
-
-                {plant.benefits && plant.benefits.length > 0 && (
-                  <div className="benefits-container">
-                    <span className="benefit-caption">Target Air Toxins:</span>
-                    <div className="benefits-pills">
-                      {plant.benefits.map((b, bIdx) => (
-                        <span key={bIdx} className="benefit-chip">
-                          ✓ {b}
-                        </span>
-                      ))}
+                <div className="plant-card-body">
+                  <div className="plant-top-row">
+                    <span className="plant-avatar">{plant.emoji || '🌿'}</span>
+                    <div className="plant-headline">
+                      <h4>{plant.name}</h4>
+                      {plant.care_level && (
+                        <span className="care-tag">Care: {plant.care_level}</span>
+                      )}
                     </div>
                   </div>
-                )}
+
+                  <p className="plant-desc">{plant.description}</p>
+
+                  {plant.benefits && plant.benefits.length > 0 && (
+                    <div className="benefits-container">
+                      <span className="benefit-caption">Target Air Toxins:</span>
+                      <div className="benefits-pills">
+                        {plant.benefits.map((b, bIdx) => (
+                          <span key={bIdx} className="benefit-chip">
+                            ✓ {b}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>

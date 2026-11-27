@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sp-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071318" />
+      <stop offset="100%" stop-color="#040b10" />
+    </linearGradient>
+    <radialGradient id="sp-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="sp-leaf-dark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#043927" />
+      <stop offset="50%" stop-color="#065f46" />
+      <stop offset="100%" stop-color="#042f1f" />
+    </linearGradient>
+    <linearGradient id="sp-leaf-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#eab308" />
+      <stop offset="15%" stop-color="#065f46" />
+      <stop offset="85%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#eab308" />
+    </linearGradient>
+    <linearGradient id="sp-pot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="sp-rim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+  </defs>
+
+  <rect width="360" height="260" rx="16" fill="url(#sp-bg)" />
+  <circle cx="180" cy="130" r="110" fill="url(#sp-glow)" />
+
+  <!-- Botanical Spear Leaves -->
+  <g id="snake-leaves">
+    <!-- Back Outer Left Leaf -->
+    <path d="M145,185 Q130,120 125,55 Q136,115 152,185 Z" fill="url(#sp-leaf-gold)" />
+    <!-- Back Outer Right Leaf -->
+    <path d="M210,185 Q225,110 238,60 Q223,120 205,185 Z" fill="url(#sp-leaf-gold)" />
+
+    <!-- Mid Left Leaf -->
+    <path d="M155,185 Q140,95 148,25 Q162,90 166,185 Z" fill="url(#sp-leaf-gold)" />
+    <path d="M152,40 Q150,90 158,160" stroke="#a7f3d0" stroke-width="1.5" stroke-opacity="0.4" fill="none" />
+
+    <!-- Center Tall Majestic Spear Leaf -->
+    <path d="M168,185 Q174,75 180,12 Q186,75 192,185 Z" fill="url(#sp-leaf-gold)" />
+    <path d="M178,25 Q179,80 180,175" stroke="#fef08a" stroke-width="1.5" stroke-opacity="0.6" fill="none" stroke-dasharray="8 6" />
+
+    <!-- Mid Right Leaf -->
+    <path d="M192,185 Q205,85 212,30 Q202,95 186,185 Z" fill="url(#sp-leaf-gold)" />
+    <path d="M204,45 Q198,100 190,165" stroke="#a7f3d0" stroke-width="1.5" stroke-opacity="0.4" fill="none" />
+
+    <!-- Foreground Short Accent Leaf -->
+    <path d="M162,185 Q168,130 172,95 Q178,135 180,185 Z" fill="url(#sp-leaf-gold)" />
+  </g>
+
+  <!-- Modern Matte Planter Pot -->
+  <g id="snake-pot">
+    <!-- Soil bed -->
+    <ellipse cx="180" cy="186" rx="46" ry="11" fill="#0f172a" />
+    <ellipse cx="180" cy="185" rx="44" ry="9" fill="#1c1917" />
+    <!-- Pot Body -->
+    <path d="M136,186 L148,238 Q180,246 212,238 L224,186 Z" fill="url(#sp-pot)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+    <!-- Beveled Pot Rim -->
+    <ellipse cx="180" cy="186" rx="46" ry="9" fill="url(#sp-rim)" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+    <!-- Gold accent stripe on pot -->
+    <path d="M142,204 Q180,211 218,204" stroke="#d4af37" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8" />
+  </g>
+
+  <!-- Clean Air Oxygen Bubbles / Flora Motes -->
+  <g fill="#34d399" opacity="0.6">
+    <circle cx="125" cy="85" r="2.5" />
+    <circle cx="230" cy="95" r="3" />
+    <circle cx="178" cy="45" r="2" />
+    <circle cx="245" cy="140" r="1.5" />
+    <circle cx="115" cy="150" r="2" />
+  </g>
+</svg>

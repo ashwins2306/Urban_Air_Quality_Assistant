@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ap-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071415" />
+      <stop offset="100%" stop-color="#030a0b" />
+    </linearGradient>
+    <radialGradient id="ap-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#eab308" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="ap-cane" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ca8a04" />
+      <stop offset="50%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#a16207" />
+    </linearGradient>
+    <linearGradient id="ap-pot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="360" height="260" rx="16" fill="url(#ap-bg)" />
+  <circle cx="180" cy="110" r="115" fill="url(#ap-glow)" />
+
+  <!-- Tropical Areca Bamboo-like Canes -->
+  <g fill="none" stroke-linecap="round">
+    <!-- Golden Yellow-Green Stems -->
+    <path d="M174,180 Q150,110 115,25" stroke="url(#ap-cane)" stroke-width="3" />
+    <path d="M180,180 Q175,95 165,15" stroke="url(#ap-cane)" stroke-width="3.5" />
+    <path d="M186,180 Q195,95 210,18" stroke="url(#ap-cane)" stroke-width="3.5" />
+    <path d="M190,180 Q215,115 250,30" stroke="url(#ap-cane)" stroke-width="3" />
+
+    <!-- Cane Rings -->
+    <circle cx="168" cy="140" r="2" fill="#ca8a04" />
+    <circle cx="178" cy="135" r="2" fill="#ca8a04" />
+    <circle cx="188" cy="140" r="2" fill="#ca8a04" />
+  </g>
+
+  <!-- Palm Foliage Pinnate Leaflets Fan -->
+  <g fill="none" stroke-linecap="round">
+    <!-- Left Cane Foliage -->
+    <path d="M135,70 Q100,55 70,68" stroke="#10b981" stroke-width="2.5" />
+    <path d="M125,50 Q90,35 60,48" stroke="#10b981" stroke-width="2.5" />
+    <path d="M115,25 Q80,15 50,30" stroke="#34d399" stroke-width="2.2" />
+
+    <!-- Center Left Cane Foliage -->
+    <path d="M170,60 Q130,45 105,45" stroke="#10b981" stroke-width="2.8" />
+    <path d="M167,40 Q130,25 110,22" stroke="#34d399" stroke-width="2.5" />
+    <path d="M165,15 Q140,5 125,5" stroke="#6ee7b7" stroke-width="2.2" />
+
+    <!-- Center Right Cane Foliage -->
+    <path d="M190,60 Q230,45 255,45" stroke="#10b981" stroke-width="2.8" />
+    <path d="M193,40 Q230,25 250,22" stroke="#34d399" stroke-width="2.5" />
+    <path d="M195,15 Q220,5 235,5" stroke="#6ee7b7" stroke-width="2.2" />
+
+    <!-- Right Cane Foliage -->
+    <path d="M225,70 Q260,55 290,68" stroke="#10b981" stroke-width="2.5" />
+    <path d="M235,50 Q270,35 300,48" stroke="#10b981" stroke-width="2.5" />
+    <path d="M250,30 Q280,15 310,30" stroke="#34d399" stroke-width="2.2" />
+
+    <!-- Outer Drooping Wings -->
+    <path d="M174,180 Q120,130 65,135" stroke="#047857" stroke-width="3" />
+    <path d="M190,180 Q240,130 295,135" stroke="#047857" stroke-width="3" />
+    <path d="M110,130 Q80,145 55,160" stroke="#059669" stroke-width="2" />
+    <path d="M250,130 Q280,145 305,160" stroke="#059669" stroke-width="2" />
+  </g>
+
+  <!-- Architectural Minimalist Fluted Planter -->
+  <g id="areca-pot">
+    <ellipse cx="180" cy="180" rx="48" ry="10" fill="#0f172a" />
+    <path d="M132,180 L144,240 Q180,250 216,240 L228,180 Z" fill="url(#ap-pot)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+    <!-- Fluting Lines -->
+    <line x1="160" y1="185" x2="164" y2="242" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+    <line x1="180" y1="186" x2="180" y2="245" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+    <line x1="200" y1="185" x2="196" y2="242" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+    <ellipse cx="180" cy="180" rx="48" ry="9" fill="#475569" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+  </g>
+
+  <!-- Tropical Sunshine Pollen Dots -->
+  <g fill="#fde047" opacity="0.6">
+    <circle cx="165" cy="15" r="2.5" />
+    <circle cx="210" cy="18" r="2" />
+    <circle cx="50" cy="30" r="2" />
+    <circle cx="310" cy="30" r="2" />
+    <circle cx="115" cy="25" r="2" />
+  </g>
+</svg>

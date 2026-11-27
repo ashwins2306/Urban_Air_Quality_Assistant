@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Sky & Dawn Sun Gradient -->
+    <linearGradient id="ns-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#04121a" />
+      <stop offset="40%" stop-color="#082f32" />
+      <stop offset="70%" stop-color="#0f5147" />
+      <stop offset="100%" stop-color="#1b4d3e" />
+    </linearGradient>
+
+    <!-- Sun & Golden Rays Gradient -->
+    <radialGradient id="ns-sun" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.9" />
+      <stop offset="25%" stop-color="#f59e0b" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#10b981" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#04121a" stop-opacity="0.0" />
+    </radialGradient>
+
+    <!-- Mountain Layers -->
+    <linearGradient id="ns-mountain-back" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f3d3e" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#082324" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="ns-mountain-mid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+
+    <!-- Rolling Green Canopy Hills -->
+    <linearGradient id="ns-hill-front" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="40%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+
+    <!-- Alpine Pure Lake -->
+    <linearGradient id="ns-lake" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.7" />
+      <stop offset="40%" stop-color="#0369a1" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#082f49" />
+    </linearGradient>
+
+    <!-- Clean Air Streamlines -->
+    <linearGradient id="ns-stream" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.0" />
+      <stop offset="50%" stop-color="#34d399" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky Canvas -->
+  <rect width="800" height="450" fill="url(#ns-sky)" />
+
+  <!-- Luminous Sunrise / Pure Air Core -->
+  <circle cx="400" cy="140" r="220" fill="url(#ns-sun)" />
+
+  <!-- Morning Sun God-Rays -->
+  <g fill="none" stroke="rgba(254, 240, 138, 0.08)" stroke-width="32" stroke-linecap="round">
+    <line x1="400" y1="140" x2="150" y2="450" />
+    <line x1="400" y1="140" x2="280" y2="450" />
+    <line x1="400" y1="140" x2="420" y2="450" />
+    <line x1="400" y1="140" x2="560" y2="450" />
+    <line x1="400" y1="140" x2="690" y2="450" />
+  </g>
+
+  <!-- Distant Alpine Mountain Peaks -->
+  <path d="M-50,260 L90,165 L210,240 L350,140 L490,230 L640,150 L780,225 L850,260 L850,450 L-50,450 Z" 
+        fill="url(#ns-mountain-back)" />
+
+  <!-- Atmospheric Mountain Mist Layer -->
+  <path d="M-20,240 Q200,200 420,235 T820,230 L820,270 L-20,270 Z" 
+        fill="rgba(56, 189, 248, 0.12)" filter="blur(6px)" />
+
+  <!-- Mid-Distance Forest Ridge with Pine Tree Silhouettes -->
+  <path d="M-20,275 Q160,210 380,240 T820,250 L820,450 L-20,450 Z" fill="url(#ns-mountain-mid)" />
+
+  <!-- Evergreen Pine Silhouettes Along Ridge -->
+  <g fill="#022c22">
+    <!-- Clustered Pine Pines -->
+    <polygon points="120,220 128,245 112,245" />
+    <polygon points="135,212 144,242 126,242" />
+    <polygon points="150,218 158,245 142,245" />
+    <polygon points="175,225 182,248 168,248" />
+
+    <polygon points="340,228 348,252 332,252" />
+    <polygon points="355,222 364,250 346,250" />
+    <polygon points="370,226 378,252 362,252" />
+
+    <polygon points="580,230 588,255 572,255" />
+    <polygon points="595,222 604,252 586,252" />
+    <polygon points="612,228 620,254 604,254" />
+  </g>
+
+  <!-- Pure Alpine Lake Basin -->
+  <path d="M-20,335 Q220,310 440,325 T820,330 L820,400 L-20,400 Z" fill="url(#ns-lake)" />
+  <!-- Lake Water Reflections of Sun & Pines -->
+  <ellipse cx="400" cy="345" rx="80" ry="6" fill="rgba(254, 240, 138, 0.35)" filter="blur(2px)" />
+  <ellipse cx="400" cy="358" rx="140" ry="4" fill="rgba(56, 189, 248, 0.25)" filter="blur(3px)" />
+
+  <!-- Rolling Lush Emerald Foreground Hills -->
+  <path d="M-40,370 Q140,325 360,355 T840,345 L840,460 L-40,460 Z" fill="url(#ns-hill-front)" />
+
+  <!-- Foreground Detailed Botanical Evergreen Trees & Foliage -->
+  <g fill="#044e3b" stroke="#10b981" stroke-width="0.8">
+    <!-- Big Left Pine -->
+    <polygon points="80,265 98,310 62,310" />
+    <polygon points="80,295 106,345 54,345" />
+    <polygon points="80,330 114,390 46,390" />
+    <rect x="76" y="390" width="8" height="25" fill="#3f2e1a" stroke="none" />
+
+    <!-- Big Right Pine -->
+    <polygon points="720,270 736,312 704,312" />
+    <polygon points="720,300 744,348 696,348" />
+    <polygon points="720,335 752,392 688,392" />
+    <rect x="716" y="392" width="8" height="22" fill="#3f2e1a" stroke="none" />
+  </g>
+
+  <!-- Clean Atmospheric Breeze Flow Lines -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M40,180 C220,130 520,210 760,160" stroke="url(#ns-stream)" stroke-width="2" />
+    <path d="M80,210 C260,165 480,230 720,195" stroke="url(#ns-stream)" stroke-width="1.5" stroke-dasharray="8 12" />
+  </g>
+
+  <!-- Floating Oxygen & Bio-Filter Spores -->
+  <g fill="#6ee7b7" opacity="0.8">
+    <circle cx="210" cy="180" r="3" />
+    <circle cx="340" cy="155" r="2.5" />
+    <circle cx="470" cy="165" r="3" />
+    <circle cx="610" cy="190" r="2" />
+    <circle cx="150" cy="320" r="2.5" />
+    <circle cx="640" cy="330" r="2.5" />
+  </g>
+
+  <!-- Vignette Rim -->
+  <rect width="800" height="450" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" rx="0" />
+</svg>

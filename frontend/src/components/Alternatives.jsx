@@ -165,6 +165,26 @@ export default function Alternatives() {
           )}
         </div>
 
+        {/* Urban Greenery & Forestry Spotlight */}
+        <div className="nature-canopy-spotlight glass-panel">
+          <div className="canopy-spotlight-img-wrap">
+            <img
+              src="/nature/clean-forest-canopy.svg"
+              alt="Community Urban Forest & Green Canopy"
+              className="canopy-spotlight-img"
+            />
+          </div>
+          <div className="canopy-spotlight-content">
+            <div className="canopy-spotlight-badge">
+              <FaTree /> Urban Forestry & Bio-Sanctuaries
+            </div>
+            <h3>Community Tree Canopies & Green Corridors</h3>
+            <p>
+              Dense urban foliage and bioswales settle airborne particulate matter by up to 24% while creating natural cooling micro-climates that disrupt thermal inversion traps.
+            </p>
+          </div>
+        </div>
+
         {/* Community Initiatives */}
         <div className="community-collective-section">
           <div className="sub-header-row">

@@ -191,11 +191,72 @@
   gap: 1.35rem;
 }
 
-.diy-project-card, .plant-botanic-card {
+.diy-project-card {
   padding: 1.75rem;
   border-radius: var(--radius-xl);
   display: flex;
   flex-direction: column;
+}
+
+.plant-botanic-card {
+  padding: 0;
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.plant-botanic-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(52, 211, 153, 0.45);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7), 0 0 35px rgba(16, 185, 129, 0.25);
+}
+
+.plant-image-banner {
+  position: relative;
+  width: 100%;
+  height: 185px;
+  background: #040d0f;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.plant-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.plant-botanic-card:hover .plant-card-img {
+  transform: scale(1.06);
+}
+
+.plant-image-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(3, 18, 14, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: #34d399;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.28rem 0.7rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.plant-card-body {
+  padding: 1.5rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .diy-project-card:hover, .plant-botanic-card:hover {
