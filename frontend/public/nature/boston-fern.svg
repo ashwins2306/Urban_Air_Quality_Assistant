@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bf-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#051410" />
+      <stop offset="100%" stop-color="#020907" />
+    </linearGradient>
+    <radialGradient id="bf-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="bf-pot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#292524" />
+      <stop offset="100%" stop-color="#1c1917" />
+    </linearGradient>
+  </defs>
+
+  <rect width="360" height="260" rx="16" fill="url(#bf-bg)" />
+  <circle cx="180" cy="120" r="115" fill="url(#bf-glow)" />
+
+  <!-- Boston Fern Feathery Fronds Assembly -->
+  <g fill="none" stroke-linecap="round">
+    <!-- Back Deep Emerald Fronds -->
+    <path d="M180,165 Q110,90 60,110" stroke="#047857" stroke-width="4.5" />
+    <path d="M180,165 Q250,90 300,110" stroke="#047857" stroke-width="4.5" />
+    <path d="M180,165 Q130,50 85,60" stroke="#059669" stroke-width="4" />
+    <path d="M180,165 Q230,50 275,60" stroke="#059669" stroke-width="4" />
+    <path d="M180,165 Q170,40 150,20" stroke="#10b981" stroke-width="3.5" />
+    <path d="M180,165 Q190,40 210,20" stroke="#10b981" stroke-width="3.5" />
+
+    <!-- Side Drooping Low Fronds -->
+    <path d="M175,170 Q100,135 45,160" stroke="#047857" stroke-width="4" />
+    <path d="M185,170 Q260,135 315,160" stroke="#047857" stroke-width="4" />
+    <path d="M175,175 Q90,165 40,195" stroke="#065f46" stroke-width="3.5" />
+    <path d="M185,175 Q270,165 320,195" stroke="#065f46" stroke-width="3.5" />
+
+    <!-- Pinnate Serrated Feather Leaflets Along Central Stems -->
+    <!-- Left Frond Leaflets -->
+    <path d="M150,135 L140,125 M135,120 L125,110 M115,108 L105,98 M95,105 L85,95 M75,108 L65,100" stroke="#34d399" stroke-width="2.5" />
+    <!-- Right Frond Leaflets -->
+    <path d="M210,135 L220,125 M225,120 L235,110 M245,108 L255,98 M265,105 L275,95 M285,108 L295,100" stroke="#34d399" stroke-width="2.5" />
+    <!-- High Left Frond Leaflets -->
+    <path d="M165,110 L155,95 M150,90 L140,75 M130,70 L120,55 M110,65 L100,50 M90,62 L85,58" stroke="#6ee7b7" stroke-width="2.5" />
+    <!-- High Right Frond Leaflets -->
+    <path d="M195,110 L205,95 M210,90 L220,75 M230,70 L240,55 M250,65 L260,50 M270,62 L275,58" stroke="#6ee7b7" stroke-width="2.5" />
+    <!-- Crown Frond Leaflets -->
+    <path d="M175,90 L168,75 M172,65 L165,50 M165,45 L158,30 M185,90 L192,75 M188,65 L195,50 M195,45 L202,30" stroke="#a7f3d0" stroke-width="2.5" />
+  </g>
+
+  <!-- Hanging Terracotta Artisan Pot with Braided Ropes -->
+  <g id="fern-pot">
+    <!-- Hanging ropes -->
+    <path d="M142,175 L165,5" stroke="#d4af37" stroke-width="1.2" opacity="0.4" />
+    <path d="M218,175 L195,5" stroke="#d4af37" stroke-width="1.2" opacity="0.4" />
+    <!-- Pot Body -->
+    <ellipse cx="180" cy="176" rx="42" ry="9" fill="#0c0a09" />
+    <path d="M138,176 Q140,225 180,234 Q220,225 222,176 Z" fill="url(#bf-pot)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+    <ellipse cx="180" cy="176" rx="42" ry="8" fill="#44403c" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+  </g>
+
+  <!-- Botanical Humidity & Oxygen Mist -->
+  <g fill="#34d399" opacity="0.6">
+    <circle cx="150" cy="22" r="2" />
+    <circle cx="210" cy="22" r="2" />
+    <circle cx="85" cy="62" r="2.5" />
+    <circle cx="275" cy="62" r="2.5" />
+    <circle cx="45" cy="162" r="2" />
+    <circle cx="315" cy="162" r="2" />
+  </g>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pl-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1318" />
+      <stop offset="100%" stop-color="#050a0e" />
+    </linearGradient>
+    <radialGradient id="pl-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="pl-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46" />
+      <stop offset="50%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+    <linearGradient id="pl-spathe" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="70%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+    <linearGradient id="pl-pot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <rect width="360" height="260" rx="16" fill="url(#pl-bg)" />
+  <circle cx="180" cy="120" r="110" fill="url(#pl-glow)" />
+
+  <!-- Broad Glossy Tropical Leaves -->
+  <g id="peace-leaves">
+    <!-- Back Leaf Left -->
+    <path d="M170,175 Q110,130 90,80 Q130,95 170,175 Z" fill="url(#pl-leaf)" opacity="0.9" />
+    <!-- Back Leaf Right -->
+    <path d="M190,175 Q250,130 270,85 Q230,95 190,175 Z" fill="url(#pl-leaf)" opacity="0.9" />
+
+    <!-- Outer Arching Leaf Left -->
+    <path d="M165,180 Q80,160 55,120 Q110,125 165,180 Z" fill="#047857" />
+    <path d="M55,120 Q105,145 165,180" stroke="#a7f3d0" stroke-width="1.2" opacity="0.6" fill="none" />
+
+    <!-- Outer Arching Leaf Right -->
+    <path d="M195,180 Q280,160 305,125 Q250,125 195,180 Z" fill="#047857" />
+    <path d="M305,125 Q255,145 195,180" stroke="#a7f3d0" stroke-width="1.2" opacity="0.6" fill="none" />
+
+    <!-- Center Low Leaf -->
+    <path d="M175,185 Q145,150 140,120 Q170,135 185,185 Z" fill="#10b981" />
+    <path d="M185,185 Q215,150 220,120 Q190,135 175,185 Z" fill="#059669" />
+  </g>
+
+  <!-- Iconic White Floral Spathes (Flowers) -->
+  <g id="peace-flowers">
+    <!-- Flower Left Stem & Blossom -->
+    <path d="M170,175 Q140,110 135,45" stroke="#10b981" stroke-width="2.5" fill="none" />
+    <!-- Spathe Hood -->
+    <path d="M135,45 Q125,20 138,10 Q152,25 135,45 Z" fill="url(#pl-spathe)" stroke="#cbd5e1" stroke-width="0.8" filter="drop-shadow(0 0 8px rgba(255,255,255,0.4))" />
+    <!-- Golden Spadix -->
+    <path d="M136,40 L137,22" stroke="#eab308" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Flower Right (Slightly Lower) -->
+    <path d="M185,175 Q210,120 220,60" stroke="#10b981" stroke-width="2.5" fill="none" />
+    <path d="M220,60 Q212,38 224,28 Q236,42 220,60 Z" fill="url(#pl-spathe)" stroke="#cbd5e1" stroke-width="0.8" filter="drop-shadow(0 0 8px rgba(255,255,255,0.4))" />
+    <path d="M221,55 L222,40" stroke="#eab308" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Modern Cylinder Planter Pot -->
+  <g id="peace-pot">
+    <ellipse cx="180" cy="180" rx="46" ry="10" fill="#0f172a" />
+    <path d="M134,180 L142,238 Q180,248 218,238 L226,180 Z" fill="url(#pl-pot)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+    <ellipse cx="180" cy="180" rx="46" ry="9" fill="#334155" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+    <!-- Gold Rim Badge -->
+    <path d="M140,196 Q180,204 220,196" stroke="#38bdf8" stroke-width="2" fill="none" opacity="0.7" />
+  </g>
+
+  <!-- Transpiration Moisture Droplets -->
+  <g fill="#38bdf8" opacity="0.7">
+    <circle cx="138" cy="12" r="2.5" />
+    <circle cx="224" cy="30" r="2" />
+    <circle cx="56" cy="122" r="2.5" />
+    <circle cx="304" cy="126" r="2.5" />
+  </g>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="spd-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#061214" />
+      <stop offset="100%" stop-color="#03090b" />
+    </linearGradient>
+    <radialGradient id="spd-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="spd-leaf" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#065f46" />
+    </linearGradient>
+    <linearGradient id="spd-pot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <rect width="360" height="260" rx="16" fill="url(#spd-bg)" />
+  <circle cx="180" cy="130" r="110" fill="url(#spd-glow)" />
+
+  <!-- Cascading Ribbon Foliage -->
+  <g fill="none" stroke-linecap="round">
+    <!-- Deep Back Arches -->
+    <path d="M175,170 Q130,100 80,125" stroke="#047857" stroke-width="6" />
+    <path d="M185,170 Q230,95 285,115" stroke="#047857" stroke-width="6" />
+    <path d="M178,165 Q110,65 65,95" stroke="#059669" stroke-width="5" />
+    <path d="M182,165 Q245,60 295,85" stroke="#059669" stroke-width="5" />
+
+    <!-- Upright Arching Leaves -->
+    <path d="M176,165 Q145,45 110,35" stroke="#10b981" stroke-width="5" />
+    <path d="M184,165 Q215,40 250,30" stroke="#10b981" stroke-width="5" />
+    <path d="M180,165 Q180,30 180,15" stroke="#34d399" stroke-width="4.5" />
+
+    <!-- White/Cream Variegated Inner Ribbons -->
+    <path d="M175,170 Q130,100 80,125" stroke="#ecfdf5" stroke-width="1.8" />
+    <path d="M185,170 Q230,95 285,115" stroke="#ecfdf5" stroke-width="1.8" />
+    <path d="M178,165 Q110,65 65,95" stroke="#ecfdf5" stroke-width="1.5" />
+    <path d="M182,165 Q245,60 295,85" stroke="#ecfdf5" stroke-width="1.5" />
+    <path d="M176,165 Q145,45 110,35" stroke="#fef08a" stroke-width="1.6" />
+    <path d="M184,165 Q215,40 250,30" stroke="#fef08a" stroke-width="1.6" />
+    <path d="M180,165 Q180,30 180,15" stroke="#fef08a" stroke-width="1.5" />
+
+    <!-- Front Low Arches -->
+    <path d="M174,175 Q110,135 60,170" stroke="#10b981" stroke-width="5.5" />
+    <path d="M174,175 Q110,135 60,170" stroke="#ecfdf5" stroke-width="1.8" />
+    <path d="M186,175 Q250,135 300,165" stroke="#10b981" stroke-width="5.5" />
+    <path d="M186,175 Q250,135 300,165" stroke="#ecfdf5" stroke-width="1.8" />
+
+    <!-- Baby Spiderette Runners -->
+    <path d="M182,175 Q280,160 310,215" stroke="#34d399" stroke-width="1.5" opacity="0.8" />
+    <path d="M176,175 Q80,170 50,220" stroke="#34d399" stroke-width="1.5" opacity="0.8" />
+  </g>
+
+  <!-- Baby Spiderette Tufts -->
+  <g fill="#10b981" stroke="#34d399" stroke-width="0.8">
+    <circle cx="310" cy="215" r="7" />
+    <circle cx="316" cy="212" r="5" fill="#34d399" />
+    <circle cx="305" cy="221" r="5" />
+    <circle cx="50" cy="220" r="7" />
+    <circle cx="44" cy="217" r="5" fill="#34d399" />
+    <circle cx="55" cy="225" r="5" />
+  </g>
+
+  <!-- Modern Pedestal Ceramic Planter -->
+  <g id="spider-pot">
+    <ellipse cx="180" cy="176" rx="42" ry="9" fill="#1e293b" />
+    <path d="M142,176 Q140,218 160,230 L200,230 Q220,218 218,176 Z" fill="url(#spd-pot)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+    <!-- Pedestal Base -->
+    <path d="M164,230 L160,244 L200,244 L196,230 Z" fill="#334155" />
+    <ellipse cx="180" cy="244" rx="22" ry="4" fill="#475569" />
+    <ellipse cx="180" cy="176" rx="42" ry="7" fill="#334155" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+  </g>
+
+  <!-- Bio-filter Dew Dots -->
+  <g fill="#38bdf8" opacity="0.6">
+    <circle cx="112" cy="38" r="2" />
+    <circle cx="248" cy="33" r="2.5" />
+    <circle cx="68" cy="98" r="2" />
+    <circle cx="292" cy="88" r="2" />
+  </g>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rp-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1116" />
+      <stop offset="100%" stop-color="#06080b" />
+    </linearGradient>
+    <radialGradient id="rp-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#059669" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#059669" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="rp-leaf-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="60%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#065f46" />
+    </linearGradient>
+    <linearGradient id="rp-leaf-sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="40%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#065f46" />
+    </linearGradient>
+    <linearGradient id="rp-spike" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#be123c" />
+      <stop offset="60%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#fda4af" />
+    </linearGradient>
+    <linearGradient id="rp-pot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#27272a" />
+      <stop offset="100%" stop-color="#18181b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="360" height="260" rx="16" fill="url(#rp-bg)" />
+  <circle cx="180" cy="115" r="115" fill="url(#rp-glow)" />
+
+  <!-- Central Woody Stem -->
+  <path d="M180,180 L180,45" stroke="#3f3f46" stroke-width="5" stroke-linecap="round" />
+
+  <!-- Leathery Broad Oval Leaves -->
+  <g id="rubber-foliage">
+    <!-- Low Right Leaf -->
+    <path d="M180,165 C220,165 270,180 285,155 C295,130 240,130 180,150 Z" fill="url(#rp-leaf-dark)" />
+    <path d="M180,158 Q240,150 285,155" stroke="#34d399" stroke-width="1.5" fill="none" opacity="0.6" />
+
+    <!-- Low Left Leaf -->
+    <path d="M180,150 C140,155 90,170 75,145 C65,120 120,120 180,135 Z" fill="url(#rp-leaf-dark)" />
+    <path d="M180,142 Q120,135 75,145" stroke="#34d399" stroke-width="1.5" fill="none" opacity="0.6" />
+
+    <!-- Mid Right Leaf with Sheen -->
+    <path d="M180,125 C230,120 280,130 290,100 C295,75 235,80 180,105 Z" fill="url(#rp-leaf-sheen)" />
+    <path d="M180,115 Q245,102 290,100" stroke="#f43f5e" stroke-width="1.8" fill="none" opacity="0.7" />
+
+    <!-- Mid Left Leaf with Sheen -->
+    <path d="M180,110 C130,105 80,115 70,85 C65,60 125,65 180,90 Z" fill="url(#rp-leaf-sheen)" />
+    <path d="M180,100 Q115,88 70,85" stroke="#f43f5e" stroke-width="1.8" fill="none" opacity="0.7" />
+
+    <!-- Upper Upright Leaves -->
+    <path d="M180,80 C155,50 145,25 160,18 C175,12 185,45 180,75 Z" fill="url(#rp-leaf-sheen)" />
+    <path d="M180,80 C205,50 215,25 200,18 C185,12 175,45 180,75 Z" fill="url(#rp-leaf-dark)" />
+
+    <!-- Iconic Emerging Coral/Burgundy Leaf Spike -->
+    <path d="M180,55 Q180,15 182,5 Q184,15 180,55 Z" fill="url(#rp-spike)" filter="drop-shadow(0 0 6px rgba(244,63,94,0.5))" />
+  </g>
+
+  <!-- Modern Scandinavian Ceramic Planter with Wooden Stand -->
+  <g id="rubber-pot">
+    <ellipse cx="180" cy="180" rx="46" ry="10" fill="#09090b" />
+    <path d="M134,180 L142,235 Q180,244 218,235 L226,180 Z" fill="url(#rp-pot)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+    <ellipse cx="180" cy="180" rx="46" ry="8" fill="#3f3f46" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+    <!-- Wooden Stand Legs -->
+    <path d="M138,225 L130,252 M222,225 L230,252" stroke="#b45309" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M142,238 L218,238" stroke="#78350f" stroke-width="3" />
+  </g>
+
+  <!-- Clean Air Oxygen Bubbles -->
+  <g fill="#34d399" opacity="0.7">
+    <circle cx="182" cy="6" r="2.5" />
+    <circle cx="290" cy="98" r="2.5" />
+    <circle cx="70" cy="85" r="2.5" />
+    <circle cx="285" cy="155" r="2" />
+  </g>
+</svg>
